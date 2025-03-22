@@ -22,34 +22,34 @@ This API consolidates contact information across multiple purchases by linking d
 
 2. Set Up Virtual Environment
 
-python -m venv venv
-source venv/bin/activate  # For Linux/Mac
-venv\Scripts\activate  # For Windows
+   python -m venv venv
+   source venv/bin/activate  # For Linux/Mac
+   venv\Scripts\activate  # For Windows
 
 3. Install Dependencies
 
-pip install -r requirements.txt
+   pip install -r requirements.txt
 
 4. Set Up PostgreSQL Database
 
-Create a PostgreSQL database (contact_db).
-
-Update app.config['SQLALCHEMY_DATABASE_URI'] in app.py with your DB credentials.
+   Create a PostgreSQL database (contact_db).
+   
+   Update app.config['SQLALCHEMY_DATABASE_URI'] in app.py with your DB credentials.
 
 
 5. Run Database Migrations
-
-flask db init
-flask db migrate -m "Initial migration"
-flask db upgrade
+   
+   flask db init
+   flask db migrate -m "Initial migration"
+   flask db upgrade
 
 6. Run the Application
 
-python app.py
+   python app.py
 
 7. Run Tests
 
-pytest test_identity.py
+   pytest test_identity.py
 
 
 📌 API Usage
