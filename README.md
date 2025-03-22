@@ -45,11 +45,11 @@ This API consolidates contact information across multiple purchases by linking d
 
 6. Run the Application
 
-   python app.py
+   python flask_rest.py
 
 7. Run Tests
 
-   pytest test_identity.py
+   pytest test_api.py
 
 
 📌 API Usage
