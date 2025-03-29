@@ -1,4 +1,4 @@
-🚀 Gen AI Query API
+# 🚀 Gen AI Query API
 
 Welcome to the Gen AI Query API, a lightweight backend service that simulates an AI-powered data query system. This project is built using Flask and PostgreSQL, and is deployed on Render.
 
