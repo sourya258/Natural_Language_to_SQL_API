@@ -87,7 +87,7 @@ def fetch():
         return {"Error" : str(e)},400
 
 # API Endpoint to return the SQL query without executing it.
-@app.route("/explain", methods = ["GET"])
+@app.route("/explain", methods = ["POST"])
 def explain():
     
     """
@@ -102,10 +102,14 @@ def explain():
       
     parameters:
       - name: Name your Demand.
-        in: query
-        type: string
+        in: body
         required: true
-        description: The query to be transformed.
+        schema:
+          type: object
+          properties:
+            query:
+              type: string
+              description: The query to be transformed.
     responses:
       200:
         description: Successfully retrieved query. 
