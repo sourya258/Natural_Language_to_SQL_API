@@ -1,131 +1,65 @@
-# 🧠 Natural Language to SQL API
+🚀 Gen AI Query API
 
-This Flask-based API converts simple natural language queries into SQL statements and executes them on a connected PostgreSQL database. It also provides Swagger-based API documentation for easy testing.
+Welcome to the Gen AI Query API, a lightweight backend service that simulates an AI-powered data query system. This project is built using Flask and PostgreSQL, and is deployed on Render.
 
----
+📌 Features
 
-## 🚀 Features
+🔍 Convert natural language queries to pseudo-SQL
 
-- 🔁 Converts natural language queries into SQL
-- 📊 Executes SQL queries and returns results from PostgreSQL
-- ✅ Validates if a query is supported
-- 🔍 Returns SQL translation without execution (Explain endpoint)
-- 📘 Swagger UI for API documentation and testing
+📊 Simulated query processing with mock responses
 
----
+✅ Query validation with error handling
 
-## 🛠️ Technologies Used
+🔐 Lightweight authentication
 
-- Python & Flask  
-- PostgreSQL  
-- Flasgger (Swagger UI)  
-- psycopg2  
-- python-dotenv
+🔧 Setup Instructions
 
----
+1️⃣ Clone the Repository
 
-## 📦 Setup Instructions
+git clone https://github.com/your-repo/gen-ai-query-api.git
+cd gen-ai-query-api
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
-```
+2️⃣ Create and Activate a Virtual Environment
 
-### 2. Create a `.env` file
+python3 -m venv venv
+source venv/bin/activate  # On macOS/Linux
+venv\Scripts\activate     # On Windows
 
-Add your PostgreSQL credentials in a `.env` file:
-```
-DB_NAME=your_database
-DB_USER=your_username
-DB_PASS=your_password
-DB_PORT=5432
-DB_HOST=your_host
-```
+3️⃣ Install Dependencies
 
-> ⚠️ **Do NOT commit `.env` to GitHub.** It should be listed in `.gitignore`.
-
----
-
-### 3. Install Requirements
-```bash
 pip install -r requirements.txt
-```
 
----
+4️⃣ Set Up Environment Variables
 
-### 4. Run the App
-```bash
-python main.py
-```
+Create a .env file and add the following:
 
----
+DATABASE_URL=postgresql://your_user:your_password@your_host:your_port/your_database
+SECRET_KEY=your_secret_key
 
-## 🧪 API Endpoints
+5️⃣ Run Migrations (if using a database)
 
-### `POST /query`
-Executes the translated SQL query.
+flask db upgrade
 
-**Input:**
-```json
-{ "query": "get total sales" }
-```
+6️⃣ Start the Server
 
-**Response:**
-```json
-{ "result": [{"sum": 4200}] }
-```
+flask run
 
----
+🚀 API Endpoints
 
-### `POST /explain`
-Returns the SQL query without executing it.
+📂 Postman Collection
 
----
+You can import the Postman collection from the following file: 📎 [Postman Collection](https://raw.githubusercontent.com/sourya258/Natural_Language_to_SQL_API/refs/heads/main/Gen_AI_QUery_API.postman_collection.json)
 
-### `POST /validate`
-Checks if the natural language query is supported.
+🌍 Live Deployment
 
----
+Check out the live API here: 🔗 [Gen AI Query API on Render](https://raw.githubusercontent.com/sourya258/Natural_Language_to_SQL_API/refs/heads/main/Gen_AI_QUery_API.postman_collection.json)
 
-## 🧬 Sample Supported Queries
+🛠 Tech Stack
 
-- `show all customers`
-- `get total sales`
-- `list top 5 products`
+Backend: Python (Flask)
 
----
+Database: PostgreSQL
 
-## 🌐 Swagger Documentation
+Deployment: Render
 
-Once the app is running, visit:
-```
-http://localhost:5000/apidocs
-```
-
----
-
-## 📂 File Structure
-
-```
-├── main.py           # Main Flask app
-├── requirements.txt  # Project dependencies
-├── Procfile          # For deployment (e.g. Heroku)
-├── .env              # Environment variables (DO NOT COMMIT)
-├── .gitignore        # Ignore .env and __pycache__ etc.
-```
-
----
-
-## 📌 Notes
-
-- This app assumes a table named `mock_data` with fields like `price`, `quantity`, etc.
-- Extend the `convert_to_sql()` dictionary to support more natural language queries.
-
----
-
-## 📤 Deployment
-
-You can deploy this to services like **Heroku**, **Render**, or **Railway**. Make sure to set the same environment variables in their respective dashboard.
-
----
+💡 Feel free to contribute or report any issues! 🚀
