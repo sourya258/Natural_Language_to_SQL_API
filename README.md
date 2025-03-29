@@ -11,7 +11,7 @@ Welcome to the Gen AI Query API, a lightweight backend service that simulates an
 ✅ Query validation with error handling
 
 🔐 Lightweight authentication
-
+---
 ##🔧 Setup Instructions
 
 ###1️⃣ Clone the Repository
