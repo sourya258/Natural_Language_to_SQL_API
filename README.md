@@ -45,6 +45,7 @@ flask db upgrade
 ```bash
 flask run
 ```
+---
 ##🚀 API Endpoints
 
 ###📂 Postman Collection
