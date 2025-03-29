@@ -94,4 +94,3 @@ Check out the live API here:
 ---
 
 💡 *Feel free to contribute or report any issues!* 🚀
-```
