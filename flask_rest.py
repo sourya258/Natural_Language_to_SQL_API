@@ -87,7 +87,7 @@ def fetch():
         return {"Error" : str(e)},400
 
 # API Endpoint to return the SQL query without executing it.
-@app.route("/explain", methods = ["POST"])
+@app.route("/explain", methods = ["GET"])
 def explain():
     
     """
