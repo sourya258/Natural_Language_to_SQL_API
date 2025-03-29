@@ -12,7 +12,8 @@ swagger = Swagger(app)
 
 # Function to establish a connection to the PostgreSQL database.
 def connect_db():
-    return psycopg2.connect(dbname=os.getenv("DB_NAME"),user=os.getenv("DB_USER"),password=os.getenv("DB_PASS"),port=os.getenv("DB_PORT"),host=os.getenv("DB_HOST"))
+    db_url = os.getenv("DATABASE_URL")
+    return psycopg2.connect(db_url)
 
 # Function to convert natural language queries to SQL queries.
 def convert_to_sql(nl_query):
