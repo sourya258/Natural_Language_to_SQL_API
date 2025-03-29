@@ -102,14 +102,10 @@ def explain():
       
     parameters:
       - name: Name your Demand.
-        in: body
+        in: query
+        type: string
         required: true
-        schema:
-          type: object
-          properties:
-            query:
-              type: string
-              description: The query to be transformed.
+        description: The query to be transformed.
     responses:
       200:
         description: Successfully retrieved query. 
