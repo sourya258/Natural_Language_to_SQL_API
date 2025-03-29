@@ -1,79 +1,131 @@
-# Identity Reconciliation API
+# 🧠 Natural Language to SQL API
 
-This API consolidates contact information across multiple purchases by linking duplicate records using email and phone numbers.
+This Flask-based API converts simple natural language queries into SQL statements and executes them on a connected PostgreSQL database. It also provides Swagger-based API documentation for easy testing.
+
+---
 
 ## 🚀 Features
-- Create primary and secondary contact records.
-- Auto-link duplicate identities.
-- Provides structured JSON responses.
-- Secure and optimized database queries.
 
-## 📂 Tech Stack
-- **Flask** (API framework)
-- **PostgreSQL** (Database)
-- **SQLAlchemy** (ORM)
-- **pytest** (Testing)
+- 🔁 Converts natural language queries into SQL
+- 📊 Executes SQL queries and returns results from PostgreSQL
+- ✅ Validates if a query is supported
+- 🔍 Returns SQL translation without execution (Explain endpoint)
+- 📘 Swagger UI for API documentation and testing
 
-## 📌 Setup Instructions
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/identity-reconciliation-api.git
-   cd identity-reconciliation-api
+---
 
-2. Set Up Virtual Environment
+## 🛠️ Technologies Used
 
-   python -m venv venv
-   source venv/bin/activate  # For Linux/Mac
-   venv\Scripts\activate  # For Windows
+- Python & Flask  
+- PostgreSQL  
+- Flasgger (Swagger UI)  
+- psycopg2  
+- python-dotenv
 
-3. Install Dependencies
+---
 
-   pip install -r requirements.txt
+## 📦 Setup Instructions
 
-4. Set Up PostgreSQL Database
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
 
-   Create a PostgreSQL database (contact_db).
-   
-   Update app.config['SQLALCHEMY_DATABASE_URI'] in app.py with your DB credentials.
+### 2. Create a `.env` file
 
+Add your PostgreSQL credentials in a `.env` file:
+```
+DB_NAME=your_database
+DB_USER=your_username
+DB_PASS=your_password
+DB_PORT=5432
+DB_HOST=your_host
+```
 
-5. Run Database Migrations
-   
-   flask db init
-   flask db migrate -m "Initial migration"
-   flask db upgrade
+> ⚠️ **Do NOT commit `.env` to GitHub.** It should be listed in `.gitignore`.
 
-6. Run the Application
+---
 
-   python flask_rest.py
+### 3. Install Requirements
+```bash
+pip install -r requirements.txt
+```
 
-7. Run Tests
+---
 
-   pytest test_api.py
+### 4. Run the App
+```bash
+python main.py
+```
 
+---
 
-📌 API Usage
+## 🧪 API Endpoints
 
-POST /identify
+### `POST /query`
+Executes the translated SQL query.
 
-Request:
+**Input:**
+```json
+{ "query": "get total sales" }
+```
 
-{
-  "email": "doc@example.com",
-  "phoneNumber": "+1234567890"
-}
+**Response:**
+```json
+{ "result": [{"sum": 4200}] }
+```
 
-Response:
+---
 
-{
-  "primaryContactId": 1,
-  "emails": ["doc@example.com"],
-  "phoneNumbers": ["+1234567890"],
-  "secondaryContactIds": []
-}
+### `POST /explain`
+Returns the SQL query without executing it.
 
-📝 Author
+---
 
-Sourya Ghosh
+### `POST /validate`
+Checks if the natural language query is supported.
 
-www.linkedin.com/in/sourya-ghosh-8a6206354
+---
+
+## 🧬 Sample Supported Queries
+
+- `show all customers`
+- `get total sales`
+- `list top 5 products`
+
+---
+
+## 🌐 Swagger Documentation
+
+Once the app is running, visit:
+```
+http://localhost:5000/apidocs
+```
+
+---
+
+## 📂 File Structure
+
+```
+├── main.py           # Main Flask app
+├── requirements.txt  # Project dependencies
+├── Procfile          # For deployment (e.g. Heroku)
+├── .env              # Environment variables (DO NOT COMMIT)
+├── .gitignore        # Ignore .env and __pycache__ etc.
+```
+
+---
+
+## 📌 Notes
+
+- This app assumes a table named `mock_data` with fields like `price`, `quantity`, etc.
+- Extend the `convert_to_sql()` dictionary to support more natural language queries.
+
+---
+
+## 📤 Deployment
+
+You can deploy this to services like **Heroku**, **Render**, or **Railway**. Make sure to set the same environment variables in their respective dashboard.
+
+---
